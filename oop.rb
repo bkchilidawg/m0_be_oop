@@ -79,14 +79,19 @@ class Hobbit
     def celebrate_birthday
         @age + 1
     end
-    if @age >= 33 or  <= 100
+    def adult
+    if @age >= 33
         is_adult == true
     end
+    def old
     if @age >= 101
         is_old == true
     end
+    def chosen
     if @name == "Frodo"
         has_ring == true
     end
 end
+
 puts hob1 = Hobbit.new("Frodo","Happy", 35)
+puts hob1.adult.old.chosen
