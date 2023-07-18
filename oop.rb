@@ -41,22 +41,31 @@ puts vamp1.drink
 #  it should have a is_hungry attribute that is true by default
 #  it should have a eat method. If the dragon eats 4 times, it is no longer hungry
 class Dragon
-    
+    attr_reader :name, :rider, :color, :is_hungry, :counter
     def initialize(name, rider, color)
         @name = name
         @rider = rider
         @color = color
         @is_hungry = true
+        @counter = 0
     end
-    def eat(quantity)
-        if quantity >= 4
-           puts @is_hungry = false
-        end
+    def eat
+        @counter += 1
+        @is_hungry = false if @counter >= 4
     end
 end
-puts drag1 = Dragon.new("Steve", "Steve", "red")
-drag1.eat(4)
 
+
+puts steve = Dragon.new("Steve", "Steve", "red")
+
+puts steve.name == "Steve"
+puts steve.rider == "Steve"
+puts steve.color == "red"
+
+steve.eat
+puts steve.is_hungry == true
+3.times {steve.eat}
+puts steve.is_hungry == false
 
 #  Write a Hobbit class
 #  it should have a dynamic name attribute (string)
