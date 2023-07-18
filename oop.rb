@@ -68,30 +68,36 @@ drag1.eat(4)
 #  it should have a has_ring attribute. If the Hobbit's name is "Frodo", true, if not, false.
 
 class Hobbit
+    attr_reader :name, :disposition, :age
+  
     def initialize(name, disposition, age = 0)
         @name = name
         @disposition = disposition
         @age = age
-        @is_adult = false
-        @is_old = false
-        @has_ring = false
     end
+
     def celebrate_birthday
-        @age + 1
+        @age += 1
     end
-    def adult
-    if @age >= 33
-        is_adult == true
+
+    def is_adult
+        @age >= 33
     end
-    def old
-    if @age >= 101
-        is_old == true
+
+    def is_old
+        @age >= 101
     end
-    def chosen
-    if @name == "Frodo"
-        has_ring == true
+
+    def has_ring
+        @name == "Frodo"
     end
 end
 
-puts hob1 = Hobbit.new("Frodo","Happy", 35)
-puts hob1.adult.old.chosen
+puts frodo = Hobbit.new("Frodo","Happy", 35)
+puts frodo.name
+puts frodo.disposition
+puts frodo.age
+puts frodo.celebrate_birthday
+puts frodo.is_adult
+puts frodo.is_old
+puts frodo.has_ring
